@@ -9,23 +9,26 @@ import loud from "../PNG/loud.png"
 import photos from "../PNG/photos.png"
 import tag from "../PNG/tag.png"
 import { AllPost } from './AllPost'
+
 export const PostInput = () => {
     const [query,setQuery] = useState("")
     const {post,setPost,allPost,setAllPost,isDisabled, setDisabled} = useContext(Context)
     
     const handlePost = ()=>{
-        console.log(query)
+       
         const newPost = {
             ...post,
             text:query
         }
         setPost(newPost)
+        setQuery("")
         setAllPost([...allPost,newPost])
         
         setPost({
             text:"",
             image:""
         })
+        
     }
     const handleTextArea = (e)=>{
         setQuery(e.target.value)
@@ -35,7 +38,7 @@ export const PostInput = () => {
             setDisabled(true)
         }
     }
-    console.log(allPost)
+   
 
   return (
     <>
@@ -46,7 +49,7 @@ export const PostInput = () => {
         </div>
         <div className={style.inputBox}>
            
-            <textarea name="textarea"  rows="10" cols="50" onChange={(e)=>handleTextArea(e)} placeholder="What's on your mind ?"></textarea>
+            <textarea name="textarea"  rows="10" cols="50" value={query} onChange={(e)=>handleTextArea(e)} placeholder="What's on your mind ?"></textarea>
         </div>
         <div>
             <img src={post.image} alt="" className={style.postimage}/>

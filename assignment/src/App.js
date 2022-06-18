@@ -4,7 +4,7 @@ import { Context } from "./Context/ContextProvider";
 import style from "./CSS/app.module.css"
 
 function App() {
-  const {isModalOpen} = useContext(Context())
+  const {isModalOpen} = useContext(Context)
   return (
     <div className={`${isModalOpen ? style.disabledApp : style.app}`}>
      <Post/>

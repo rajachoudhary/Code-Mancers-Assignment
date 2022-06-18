@@ -8,7 +8,7 @@
    right: 530px;
    width: 470px;
    border: 1px solid rgb(209, 204, 204);
-   top: 100px;
+   top: 70px;
    background-color: rgb(243, 235, 235);
    /* background-color: black; */
  
@@ -63,5 +63,5 @@
     overflow: scroll;
     height: 500px;
     margin-top: 8%;
-    top: 100px;
+    top: 70px;
 }
