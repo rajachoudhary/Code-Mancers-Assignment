@@ -1,8 +1,9 @@
 .contianer{
     width: 450px;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid rgb(214, 210, 210);
     padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .profileContainer{
     display: flex;
@@ -28,9 +29,7 @@
     width: 420px;
     padding-left: 15px;
     padding-right: 15px;
-    height: 100px;
-   
-
+    height: 70px;
 }
 .imgContainer{
     display: flex;
@@ -71,4 +70,20 @@
     margin-top: 15px;
     border-radius: 10px;
 
+}
+.postButtonDisabled>button{
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #a0a4a7;
+    color: white;
+    border: none;
+    padding: 9px;
+    text-align: center;
+    width: 450px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.postimage{
+    right: 530px;
+    width: 450px; 
 }

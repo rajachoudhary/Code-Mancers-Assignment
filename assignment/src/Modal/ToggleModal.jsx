@@ -1,32 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { PostList } from "../Components/PostList";
+import { Context } from "../Context/ContextProvider";
 import style from "../CSS/toggleModel.module.css";
 import cross from "../PNG/cross.png";
 import search from "../PNG/search.png";
 export const ToggleModal = ({ onRequestClose }) => {
-  const [query, setQuery] = React.useState("");
+
+  const [query, setQuery] = React.useState("happy");
   const [data, setData] = useState([]);
+  const {post,setPost} = useContext(Context)
+  
   const apiKey = "pWi8HI7Ni2djyWoUsoY0vU71GNqHRyrq";
+
   const handleGifSearch = () => {
-    fetch(
-      `https://api.giphy.com/v1/gifs/search?q=${query}&api_key=${apiKey}&limit=5%22`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res.data);
-        setData(res.data);
-      });
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=${apiKey}&limit=5%22`)
+    .then((res) => res.json())
+    .then((res) => {
+    console.log(res.data);
+    setData(res.data);
+    });
+    // setPost[text](query)
+    // console.log(post)
   };
-//   let debounce = setTimeout(() => {
-//     handleGifSearch()
-//   }, 1000);
-  useEffect(() => {
-    // debounce()
-  }, [setData]);
+ useEffect(()=>{
+    handleGifSearch()
+ },[])
   return (
-    <div>
+    <div className={style.toggleModleOuterContainer}>
     <div className={style.toggleModelContainer}>
       <div className={style.toggleModelHeader}>
         <h3>Choose a Gif</h3>
@@ -55,7 +57,7 @@ export const ToggleModal = ({ onRequestClose }) => {
     </div>
     <div className={style.gifSearchResult}>
         {data.map((item) => {
-          return <PostList image={item.images.downsized.url} />;
+          return <PostList image={item.images.downsized.url} id = {item.id} />;
         })}
     </div>
     </div>

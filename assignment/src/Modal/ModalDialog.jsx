@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { ToggleModal } from './ToggleModal';
 import style from "../CSS/modalDialog.module.css"
-
 import gif from "../PNG/gif.png"
+import { useContext } from 'react';
+import { Context } from '../Context/ContextProvider';
 
 export const ModalDialog = () => {
 
-    const [ isModalOpen, setModalIsOpen ] = useState(false);
+    const { isModalOpen, setModalIsOpen } = useContext(Context);
 
     // console.log(useState("hello")[ 1 ]);
     const toggleModal = () => {
